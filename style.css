@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    background-color: bisque;
+
+    height: 100vh;
+}
+
+.card {
+    border: 1px solid white;
+    border-radius: 6px;
+    background-color: white;
+
+    padding: 5rem;
+    margin: 1rem;
+}
+
+.card h1 {
+    text-align: center;
+    font-size: 4rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.card label {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 2.5rem;
+}
+
+.card input {
+    border: none;
+    outline: none;
+    border-bottom: 2px solid black;
+
+    font-size: 2.5rem;
+
+    margin: 2rem 0;
+}
+
+.card button {
+    background-color: aliceblue;
+    color: black;
+    padding: 0.5rem 1rem;
+    font-size: 2.5rem;
+    border: 2px solid black;
+    border-style: dotted;
+    border-radius: 99999999px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    display: block;
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.card button:hover {
+    background-color: white;
+    color: black;
+}

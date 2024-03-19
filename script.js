@@ -2,9 +2,15 @@ const span = document.querySelector('span');
 const input = document.querySelector('#card_input');
 const button = document.querySelector('button');
 
-button.addEventListener('click', () => checkInput(input.value));
+button.addEventListener('click', () => {
+    if (isInputEmpty(input)) {
+        return console.log('vazio')
+    } 
 
-async function fetchCard() {
+    fetchCard(input);
+});
+
+async function fetchCard(input) {
     try {
         const response = await fetch(`https://db.ygoprodeck.com/api/v7/cardinfo.php?name=${input.value}`);
 
@@ -20,9 +26,7 @@ async function fetchCard() {
     }
 }
 
-function checkInput(inputValue) {
-    console.log("input v:" + inputValue);
-    if (!input.value.trim()) {
-        alert('teste')
-    }
+function isInputEmpty(input) {
+    if (input.value.trim() === '') return true;
+    else return false;
 }

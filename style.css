@@ -56,10 +56,16 @@
     transition: background-color 0.3s, color 0.3s;
     display: block;
     margin-top: 1rem;
+    margin-bottom: 2rem;
     width: 100%;
 }
 
 .card button:hover {
     background-color: white;
     color: black;
+}
+
+.card span {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 2rem;
 }

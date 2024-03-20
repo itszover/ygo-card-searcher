@@ -29,8 +29,7 @@ async function fetchCard(input) {
         const cardImageURL = `https://images.ygoprodeck.com/images/cards/${cardID}.jpg`;
 
         if (!localStorage.getItem(cardName)) {
-            const image = await fetch(cardImageURL);
-            localStorage.setItem(cardName, URL.createObjectURL(image.blob()));
+            localStorage.setItem(cardName, cardImageURL);
         }
 
         img.src = localStorage.getItem(cardName);

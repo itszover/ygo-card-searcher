@@ -4,75 +4,73 @@
     box-sizing: border-box;
 }
 
-.container {
+nav {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: space-between;
 
-    background-color: bisque;
-
-    height: 100vh;
+    border-bottom: 1px solid black;
+    min-height: 5rem;
+    height: auto;
 }
 
-.card {
-    border: 1px solid white;
-    border-radius: 6px;
-    background-color: white;
-
-    padding: 5rem;
-    margin: 1rem;
-
-    max-width: 31%;
-    width: auto;
+main {
+    height: calc(100vh - 5rem);
 }
 
-.card h1 {
+h1 {
     font-size: 4rem;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.card label {
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    height: 100%;
+}
+
+.search-section {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+label {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 2.5rem;
 }
 
-.card input {
+input {
     border: none;
     outline: none;
     border-bottom: 2px solid black;
-
+    display: block;
     font-size: 2.5rem;
-
-    margin-top: 2rem;
 }
 
-.card small {
-    display: block;
+small {
     color: red;
     font-size: 1rem;
     font-weight: bold;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-
+    display: block;
     min-height: 20px;
 }
 
-.card button {
-    background-color: aliceblue;
+button {
+    background-color: #f0f8ff;
     color: black;
     padding: 0.5rem 1rem;
     font-size: 2.5rem;
-    border: 2px solid black;
-    border-style: dotted;
-    border-radius: 99999999px;
+    border: 1px solid #d0d7dd;
+    border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
-    display: block;
-    margin-top: 1rem;
-    margin-bottom: 2rem;
-    width: 100%;
 }
 
-.card button:hover {
+button:hover {
     background-color: white;
     color: black;
 }
@@ -80,9 +78,4 @@
 span {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 1.2rem;
-}
-
-img {
-    max-width: 10rem;
-    width: auto;
 }

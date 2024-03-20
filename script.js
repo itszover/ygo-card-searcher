@@ -4,19 +4,20 @@ const errorTextElement = document.querySelector('.error-text');
 const searchButtonElement = document.querySelector('.search-button');
 const cardImageElement = document.querySelector('.card-img');
 
-searchButtonElement.addEventListener('click', () => {
+searchButtonElement.addEventListener('click', async () => {
     if (isInputEmpty(cardInputElement)) {
         displayError('Campo vazio.');
     } else {
         displayError('');
-        fetchCardInfo(cardInputElement.value);
+        const { name, desc, card_images } = await fetchCardInfo(`https://db.ygoprodeck.com/api/v7/cardinfo.php?name=${cardInputElement.value}`);
+        cacheImage(name, card_images[0].image_url_cropped);
+        displayCardInfo(name, desc);
     }
 });
 
-async function fetchCardInfo(cardName) {
+async function fetchCardInfo(cardURL) {
     try {
-        const apiUrl = `https://db.ygoprodeck.com/api/v7/cardinfo.php?name=${cardName}`;
-        const response = await fetch(apiUrl);
+        const response = await fetch(cardURL);
 
         if (!response.ok) {
             displayError('Carta não encontrada.');
@@ -24,11 +25,8 @@ async function fetchCardInfo(cardName) {
         }
 
         const cardData = await response.json();
-        const { name, desc, card_images } = cardData.data[0];
 
-        cacheImage(name, card_images[0].image_url_cropped);
-
-        displayCardInfo(name, desc);
+        return cardData.data[0];
 
     } catch (error) {
         console.error(`Erro: ${error}`);

@@ -9,25 +9,24 @@
 </head>
 <body>
     <header>
-        <nav>
-            <h1>Yu-Gi-Oh! API</h1>
-            <span>text</span>
+        <nav class="navbar">
+            <h1 class="title">Yu-Gi-Oh! API</h1>
+            <span class="nav-span"><a href="https://ygoprodeck.com/api-guide/" target="_blank"> API utilizada no projeto</a></span>
         </nav>
     </header>
     <main>
         <div class="container">
             <section class="search-section">
-                <label for="card_input"></label>
-                    <div class="input-wrapper"></div>
-                    <input name="card_input" id="card_input" type="text" placeholder="Nome da carta">
-                    <small></small>
-                    <button type="button">Pesquisar</button>
+                <div class="input-container">
+                    <label class="card-input-label" for="card-input"></label>
+                    <input name="card-name" id="card-input" type="text" placeholder="Nome da carta">
+                    <button class="search-button" type="button">Pesquisar</button>
+                    <small class="error-text"></small>
+                </div>
             </section>
-            <section>
-                <img src="https://picsum.photos/seed/picsum/200">
-                <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Exercitationem, impedit. 
-                    Ratione fugiat et maiores autem? Nihil, sed quibusdam, similique corrupti sequi culpa,
-                    autem minus qui dolore doloribus aperiam quos vero!</span>
+            <section class="info-section">
+                <img class="card-img" src="" alt="" title="">
+                <p class="card-desc"></p>
             </section>
         </div>
     </main>

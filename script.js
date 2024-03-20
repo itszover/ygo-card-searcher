@@ -1,8 +1,8 @@
-const span = document.querySelector('span');
-const input = document.querySelector('#card_input');
-const small = document.querySelector('small');
-const button = document.querySelector('button');
-const img = document.querySelector('img');
+const span = document.querySelector('.card-desc');
+const input = document.querySelector('#card-input');
+const small = document.querySelector('.error-text');
+const button = document.querySelector('.search-button');
+const img = document.querySelector('.card-img');
 
 button.addEventListener('click', () => {
     if (isInputEmpty(input)) {
@@ -23,17 +23,16 @@ async function fetchCard(input) {
         }
 
         const data = await response.json();
-        const cardID = data.data[0].id;
-        const cardName = data.data[0].name;
-        const cardDescription = data.data[0].desc;
-        const cardImageURL = `https://images.ygoprodeck.com/images/cards/${cardID}.jpg`;
-
-        if (!localStorage.getItem(cardName)) {
-            localStorage.setItem(cardName, cardImageURL);
+        const { name, desc, card_images } = data.data[0];
+        
+        if (!localStorage.getItem(name)) {
+            localStorage.setItem(name, card_images[0].image_url_cropped);
         }
 
-        img.src = localStorage.getItem(cardName);
-        writeInnerText(span, cardDescription);
+        img.src = localStorage.getItem(name);
+        img.alt = `${name}`;
+        img.title = `${name}`;
+        writeInnerText(span, desc);
 
     } catch (error) {
         console.error(`Erro: ${error}`);
@@ -41,21 +40,9 @@ async function fetchCard(input) {
 }
 
 function isInputEmpty(input) {
-    if (input.value.trim() === '') {
-        return true
-    }
-
-    return false;  
+    return input.value.trim() === '';
 }
 
 function writeInnerText(element, message) {
     element.innerText = message;
-}
-
-function isImageStored(cardName, imageUrl) {
-    if (localStorage.getItem(cardName, imageUrl)) {
-        return true;
-    }
-
-    return false;
 }

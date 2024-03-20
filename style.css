@@ -1,10 +1,15 @@
+:root {
+    --main-font: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    --secondary-font: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-nav {
+.navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -12,15 +17,25 @@ nav {
     border-bottom: 1px solid black;
     min-height: 5rem;
     height: auto;
+    padding: 0.6rem;
 }
 
 main {
     height: calc(100vh - 5rem);
 }
 
-h1 {
+.title {
     font-size: 4rem;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: var(--main-font);
+}
+
+.nav-span {
+    font-size: 1.5rem;
+    font-family: var(--secondary-font);
+}
+
+.nav-span a {
+    color: black;
 }
 
 .container {
@@ -34,48 +49,66 @@ h1 {
 .search-section {
     display: flex;
     justify-content: center;
-    text-align: center;
+    align-items: center;
+    padding: 1rem;
 }
 
-label {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 2.5rem;
-}
-
-input {
+#card-input {
     border: none;
     outline: none;
     border-bottom: 2px solid black;
-    display: block;
     font-size: 2.5rem;
+    padding: 0.5rem;
 }
 
-small {
+.error-text {
     color: red;
     font-size: 1rem;
     font-weight: bold;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    display: block;
+    font-family: var(--secondary-font);
     min-height: 20px;
+    display: block;
 }
 
-button {
+.search-button {
     background-color: #f0f8ff;
     color: black;
     padding: 0.5rem 1rem;
-    font-size: 2.5rem;
+    font-size: 2rem;
     border: 1px solid #d0d7dd;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
 }
 
-button:hover {
+.search-button:hover {
     background-color: white;
     color: black;
 }
 
-span {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+.info-section {
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+
+    background-color: ghostwhite;
+
+    padding: 1rem;
+    border-radius: 5%;
+}
+
+.card-img {
+    max-width: 15rem;
+    max-height: auto;
+    width: auto;
+    height: auto;
+    border-radius: 10%;
+}
+
+.card-desc {
+    min-width: 10rem;
+    width: 40rem;
+    min-height: 200px;
+    font-family: var(--main-font);
     font-size: 1.2rem;
 }

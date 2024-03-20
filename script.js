@@ -28,11 +28,12 @@ async function fetchCard(input) {
         const cardDescription = data.data[0].desc;
         const cardImageURL = `https://images.ygoprodeck.com/images/cards/${cardID}.jpg`;
 
-        if (!localStorage.getItem(cardName, cardImageURL)) {            
-            localStorage.setItem(cardName, cardImageURL);
+        if (!localStorage.getItem(cardName)) {
+            const image = await fetch(cardImageURL);
+            localStorage.setItem(cardName, URL.createObjectURL(image.blob()));
         }
 
-        img.src = localStorage.getItem(cardName, cardImageURL);
+        img.src = localStorage.getItem(cardName);
         writeInnerText(span, cardDescription);
 
     } catch (error) {

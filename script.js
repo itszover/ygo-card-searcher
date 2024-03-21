@@ -1,4 +1,4 @@
-const API_URL = 'https://db.ygoprodeck.com/api/v7/cardinfo.php?';
+const API_URL = 'https://db.ygoprodeck.com/api/v7/';
 
 const cardDescriptionElement = document.querySelector('.card-desc');
 const cardInputElement = document.querySelector('#card-input');
@@ -7,6 +7,10 @@ const searchButtonElement = document.querySelector('.search-button');
 const cardImageElement = document.querySelector('.card-img');
 
 searchButtonElement.addEventListener('click', handleSearch);
+cardInputElement.addEventListener('keydown', event => {
+    if (event.key === 'Enter') handleSearch();
+});
+
 
 async function handleSearch() {
     displayError('');
@@ -18,12 +22,12 @@ async function handleSearch() {
     
         if (localStorage.getItem(cardInputElement.value)) {
             displayCardInfo(cardInputElement.value);
-            return;
+        } else {
+            const { name, desc, card_images } = await fetchCardInfo(`${API_URL}cardinfo.php?name=${cardInputElement.value}&language=pt`);
+            cacheData(name, card_images[0].image_url_cropped, desc);
+            displayCardInfo(name);
         }
         
-        const { name, desc, card_images } = await fetchCardInfo(`${API_URL}name=${cardInputElement.value}&language=pt`);
-        cacheData(name, card_images[0].image_url_cropped, desc);
-        displayCardInfo(name);
     } catch (error) { 
         displayError(error.message);
     }

@@ -9,7 +9,7 @@ searchButtonElement.addEventListener('click', async () => {
         displayError('Campo vazio.');
     } else {
         displayError('');
-        const { name, desc, card_images } = await fetchCardInfo(`https://db.ygoprodeck.com/api/v7/cardinfo.php?name=${cardInputElement.value}`);
+        const { name, desc, card_images } = await fetchCardInfo(`https://db.ygoprodeck.com/api/v7/cardinfo.php?name=${cardInputElement.value}&language=pt`);
         cacheImage(name, card_images[0].image_url_cropped);
         displayCardInfo(name, desc);
     }

@@ -1,55 +1,65 @@
+const API_URL = 'https://db.ygoprodeck.com/api/v7/cardinfo.php?';
+
 const cardDescriptionElement = document.querySelector('.card-desc');
 const cardInputElement = document.querySelector('#card-input');
 const errorTextElement = document.querySelector('.error-text');
 const searchButtonElement = document.querySelector('.search-button');
 const cardImageElement = document.querySelector('.card-img');
 
-searchButtonElement.addEventListener('click', async () => {
-    if (isInputEmpty(cardInputElement)) {
-        displayError('Campo vazio.');
-    } else {
-        displayError('');
-        const { name, desc, card_images } = await fetchCardInfo(`https://db.ygoprodeck.com/api/v7/cardinfo.php?name=${cardInputElement.value}&language=pt`);
-        cacheImage(name, card_images[0].image_url_cropped);
-        displayCardInfo(name, desc);
-    }
-});
+searchButtonElement.addEventListener('click', handleSearch);
 
-async function fetchCardInfo(cardURL) {
+async function handleSearch() {
+    displayError('');
+    
     try {
-        const response = await fetch(cardURL);
-
-        if (!response.ok) {
-            displayError('Carta não encontrada.');
-            throw new Error('Carta não encontrada');
+        if (isInputEmpty(cardInputElement)) {
+            throw new Error('Campo vazio.');
         }
-
-        const cardData = await response.json();
-
-        return cardData.data[0];
-
-    } catch (error) {
-        console.error(`Erro: ${error}`);
+    
+        if (localStorage.getItem(cardInputElement.value)) {
+            displayCardInfo(cardInputElement.value);
+            return;
+        }
+        
+        const { name, desc, card_images } = await fetchCardInfo(`${API_URL}name=${cardInputElement.value}&language=pt`);
+        cacheData(name, card_images[0].image_url_cropped, desc);
+        displayCardInfo(name);
+    } catch (error) { 
+        displayError(error.message);
     }
+
 }
 
-function isInputEmpty(inputElement) {
-    return inputElement.value.trim() === '';
+async function fetchCardInfo(cardURL) {
+    const response = await fetch(cardURL);
+
+    if (!response.ok) {
+        throw new Error('Carta não encontrada');
+    }
+
+    const cardData = await response.json();
+
+    return cardData.data[0];
+}
+
+function isInputEmpty(input) {
+    return input.value.trim() === '';
 }
 
 function displayError(message) {
     errorTextElement.innerText = message;
 }
 
-function displayCardInfo(name, description) {
-    cardImageElement.src = localStorage.getItem(name);
+function displayCardInfo(name) {
+    const info = JSON.parse(localStorage.getItem((name)));
+    cardImageElement.src = info.imageUrl;
     cardImageElement.alt = name;
     cardImageElement.title = name;
-    cardDescriptionElement.innerText = description;
+    cardDescriptionElement.innerText = info.desc;
 }
 
-function cacheImage(name, imageUrl) {
+function cacheData(name, imageUrl, desc) {
     if (!localStorage.getItem(name)) {
-        localStorage.setItem(name, imageUrl);
+        localStorage.setItem(name, JSON.stringify({ imageUrl, desc }));
     }
 }

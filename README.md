@@ -10,4 +10,4 @@ entre páginas para atualização da interface.
 <br>
 
 ### ☄️ API escolhida
-[Yu-Gi-Oh! API](https://ygoprodeck.com/api-guide/)
+* [Yu-Gi-Oh! API](https://ygoprodeck.com/api-guide/)

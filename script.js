@@ -29,6 +29,7 @@ async function handleSearch() {
         }
 
     } catch (error) {
+        console.error(error);
         displayError(error.message);
     }
 

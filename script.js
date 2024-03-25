@@ -39,7 +39,7 @@ async function fetchCardInfo(cardURL) {
     const response = await fetch(cardURL);
 
     if (!response.ok) {
-        throw new Error('Carta não encontrada');
+        throw new Error('Carta não encontrada.');
     }
 
     const cardData = await response.json();

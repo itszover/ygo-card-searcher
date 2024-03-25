@@ -10,7 +10,7 @@
 }
 
 main {
-    height: calc(100vh - 5rem);
+    height: calc(100vh - 6.1rem);
 }
 
 .navbar {
@@ -25,8 +25,7 @@ main {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.navbar h1,
-span {
+.navbar h1, span {
     padding: 0.4rem;
 }
 
@@ -120,11 +119,12 @@ span {
     border-radius: 1rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     min-width: 27rem;
-    max-width: 75rem;
+    max-width: 65rem;
 }
 
 .card-img {
-    max-width: 15rem;
+    width: auto;
+    min-width: 15rem;
     max-height: 15rem;
     border-radius: 1rem;
 }
@@ -133,6 +133,6 @@ span {
     min-width: 10rem;
     min-height: 200px;
     font-family: var(--main-font);
-    font-size: 1.2rem;
-    line-height: 1.5;
+    font-size: 1.4rem;
+    line-height: 1.3;
 }

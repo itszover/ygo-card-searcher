@@ -1,6 +1,6 @@
 # Projeto 1 de Programação Web Fullstack
 
-![preview](assets/preview.png)
+![preview](assets/preview.PNG)
 
 ## 📋 Descrição do projeto
 O Projeto 1 da disciplina Programação Web Fullstack trata-se do desenvolvimento da camada

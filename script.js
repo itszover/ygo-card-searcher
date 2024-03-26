@@ -12,8 +12,6 @@ cardInputElement.addEventListener('keydown', event => {
     if (event.key === 'Enter') handleSearch();
 });
 
-document.cookie = 'ncmp.domain=ygoprodeck.com; SameSite=None; Secure';
-
 async function handleSearch() {
     displayError('');
 

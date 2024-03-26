@@ -11,7 +11,7 @@ entre páginas para atualização da interface.
 
 <br>
 
-## Sugestão de cartas para testar
+## Exemplos de cartas para testar
 * 🟩 Raigeki
 * 🟨 Dragão Branco de Olhos Azuis
 * 🟧 Ocultador de Efeitos

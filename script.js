@@ -5,12 +5,14 @@ const cardInputElement = document.querySelector('#card-input');
 const errorTextElement = document.querySelector('.error-text');
 const searchButtonElement = document.querySelector('.search-button');
 const cardImageElement = document.querySelector('.card-img');
+const cardNameElement = document.querySelector('.card-name');
 
 searchButtonElement.addEventListener('click', handleSearch);
 cardInputElement.addEventListener('keydown', event => {
     if (event.key === 'Enter') handleSearch();
 });
 
+document.cookie = 'ncmp.domain=ygoprodeck.com; SameSite=None; Secure';
 
 async function handleSearch() {
     displayError('');
@@ -20,10 +22,12 @@ async function handleSearch() {
             throw new Error('Campo vazio.');
         }
 
-        if (localStorage.getItem(cardInputElement.value)) {
-            displayCardInfo(cardInputElement.value);
+        const inputValue = cardInputElement.value.trim();
+
+        if (localStorage.getItem(inputValue)) {
+            displayCardInfo(inputValue);
         } else {
-            const { name, desc, card_images } = await fetchCardInfo(`${API_URL}?name=${cardInputElement.value}&language=pt`);
+            const { name, desc, card_images } = await fetchCardInfo(inputValue);
             cacheData(name, card_images[0].image_url_cropped, desc);
             displayCardInfo(name);
         }
@@ -35,8 +39,8 @@ async function handleSearch() {
 
 }
 
-async function fetchCardInfo(cardURL) {
-    const response = await fetch(cardURL);
+async function fetchCardInfo(cardName) {
+    const response = await fetch(`${API_URL}?name=${cardName}&language=pt`);
 
     if (!response.ok) {
         throw new Error('Carta não encontrada.');
@@ -57,6 +61,7 @@ function displayError(message) {
 
 function displayCardInfo(name) {
     const info = JSON.parse(localStorage.getItem((name)));
+    cardNameElement.innerText = name;
     cardImageElement.src = info.imageUrl;
     cardImageElement.alt = name;
     cardImageElement.title = name;

@@ -109,17 +109,26 @@ main {
 }
 
 .info-section {
-    display: flex;
-    justify-content: space-around;
-    gap: 2rem;
-
     background-color: #f8f8ff;
 
     padding: 1rem;
+    margin: 0 1rem;
     border-radius: 1rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
     min-width: 27rem;
-    max-width: 65rem;
+    max-width: 65rem; 
+}
+
+.card-name {
+    font-family: var(--secondary-font);
+    margin-bottom: 0.8rem;
+    text-decoration: underline;
+}
+
+.img-desc-container {
+    display: flex;
+    gap: 1rem;
 }
 
 .card-img {
@@ -131,7 +140,6 @@ main {
 
 .card-desc {
     min-width: 10rem;
-    min-height: 200px;
     font-family: var(--main-font);
     font-size: 1.4rem;
     line-height: 1.3;

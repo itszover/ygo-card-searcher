@@ -10,6 +10,12 @@ entre páginas para atualização da interface.
 
 <br>
 
+## Sugestão de cartas para testar
+* 🟩 Raigeki
+* 🟨 Dragão Branco de Olhos Azuis
+* 🟧 Ocultador de Efeitos
+* 🟪 Enorme Revolução
+
 ### ☄️ API escolhida
 * [Yu-Gi-Oh! API](https://ygoprodeck.com/api-guide/)
 

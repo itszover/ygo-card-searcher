@@ -1,5 +1,6 @@
 # Projeto 1 de Programação Web Fullstack
-<br>
+
+![preview](assets/preview.PNG)
 
 ## 📋 Descrição do projeto
 O Projeto 1 da disciplina Programação Web Fullstack trata-se do desenvolvimento da camada
@@ -9,6 +10,12 @@ serao implementadas em uma única página HTML, sem a necessidade de redireciona
 entre páginas para atualização da interface.
 
 <br>
+
+## Exemplos de cartas para testar
+* 🟩 Raigeki
+* 🟨 Dragão Branco de Olhos Azuis
+* 🟧 Ocultador de Efeitos
+* 🟪 Enorme Revolução
 
 ### ☄️ API escolhida
 * [Yu-Gi-Oh! API](https://ygoprodeck.com/api-guide/)

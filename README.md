@@ -21,4 +21,4 @@ entre páginas para atualização da interface.
 * [Yu-Gi-Oh! API](https://ygoprodeck.com/api-guide/)
 
 ### 📄 Github Pages
-* [github.io/YGO-Card-Searcher](https://itszover.github.io/YGO-Card-Searcher/)
+* [github.io/YGO-Card-Searcher](https://itszover.github.io/ygo-card-searcher/)
